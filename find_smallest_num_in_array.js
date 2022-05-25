@@ -14,6 +14,6 @@
 function returnsSmallestInteger(intArray) {
    intArray.sort(function(a, b) {
        return a - b } );
-       return args[0];
+       return intArray[0];
    
 }
