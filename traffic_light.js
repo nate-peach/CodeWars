@@ -6,13 +6,13 @@
 // For example, if we were taking in the string 'red' we'd expect our output to be 'green'.
 // 1. We need to set up a logical set of instructions 2. We need to return a string
 
-const changeTrafficLightColor = currentColor =>
-    if (currentColor == 'red') {
-        return 'yellow';
+function updateLight(current) {
+    if (current == 'red'){
+      return 'green';
     }
-    if (currentColor == 'yellow') {
-        return 'green';
+    if (current == 'yellow'){
+      return 'red'
+    }else{
+      return 'yellow'
     }
-    else {
-        return 'red';
-    }
+  }
