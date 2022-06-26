@@ -8,15 +8,23 @@
 // !! 1. I think I'll set up two variables, and add 1 or input[i] depending on the value of the number 2. I'll use a loop to move through the array 3. I'll return declared array
 
 function countPositivesSumNegatives(input) {
-    let positiveNumCount = 0;
-    let negativeNumSum = 0;
-     for (let i = 0; i <= input.length; i++) {
-       if (input[i] > 0) {
-         positiveNumCount += 1;
-       }
-       else if (input[i] <= 0) {
-         negativeNumSum += input[i];
-       }
+  let positiveNumCount = 0;
+  let negativeNumSum = 0;
+   if (input == [] || input == null || input == [0, 0]) {
+     return [];
+   }
+   for (let i = 0; i <= input.length; i++) {
+     if (input[i] > 0) {
+       positiveNumCount += 1;
      }
-      return [positiveNumCount, negativeNumSum];
+     else if (input[i] < 0) {
+       negativeNumSum += input[i];
      }
+   }
+   if (positiveNumCount == 0 && negativeNumSum == 0) {
+     return [];
+   }
+   else{
+     return [positiveNumCount, negativeNumSum];
+     }
+   }
