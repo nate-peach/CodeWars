@@ -13,7 +13,7 @@
 // So we're taking in an array? The array contains just strings, names? Will we see an empty array?
 // And we're returning a string, different depending on how many people "like" something? Can I print to the console?
 // So if I take in ["Amanda", "Nate", "Alex"] we'd return "Amanda, Nate, and Alex like this"
-// 1. Need to create a set of conditionals  2. We can use template literals and .length
+// 1. Need to create a set of conditionals  2. We can use template literals and .length (seems like an opportunity to use OOP?)
 
 const likes = names =>
   names.length == 1 ?
