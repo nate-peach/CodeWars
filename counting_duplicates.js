@@ -15,3 +15,4 @@ function duplicateCount(text){
     }
     return duplicates.size;
   }
+  
