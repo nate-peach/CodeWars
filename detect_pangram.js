@@ -8,7 +8,11 @@
 // 1. I think I can put the alphabet in a variable 2. Use .indexOf() to check if a letter is present 3. Use a loop and a conditional
 
 const pangramOrNot = function(sentence) {
-    let letters = sentence.split('')
-    const alphabet = [abcdefghijklmnopqrstuvwxyz];
-    return letters.filter(a => alphabet.indexOf(a) !== -1);
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    for (let i = 0; i < alphabet.length; i++) {
+        if (sentence.toLowerCase().indexOf(alphabet[i]) == -1) {
+            return false;
+        }
+    }
+    return true;
 }
