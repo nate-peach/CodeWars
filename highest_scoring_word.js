@@ -14,5 +14,8 @@
 // 1. I think there's probably a way to use unicode here, and there is, String.fromCharCode(), seems like if we subtract 60 from the value, we'll get what we want 2. can probably use .map() and .split()
 
 const scoreWord = function(str) {
-    
+    const words = str.split('');
+    console.log(words.map(letter => String.fromCharCode(parseInt(letter, 10))))
 }
+
+scoreWord('freelancing is hard')
