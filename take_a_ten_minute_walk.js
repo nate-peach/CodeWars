@@ -22,7 +22,7 @@ const isValidWalk = function(walk) {
 
 // A different solution I came up with after viewing the others' solutions
 
-//  const isValidWalk = function(walk) {
+// const isValidWalk = function(walk) {
 //     if (walk.length !== 10)
 //         return false;
 
