@@ -23,4 +23,4 @@ const queueTime = function(customers, n) {
     });
   
     return Math.max(...tills);
-  }
+  };
