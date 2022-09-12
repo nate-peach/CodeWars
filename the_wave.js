@@ -5,18 +5,18 @@
 // For example, "nathan" would return [Nathan, nAthan, naThan, natHan, nathAn, nathaN]
 // 1. Can definitely use .toUpperCase() to change cases 2. Probably use .map() and .split() to apply uppercase appropriately and create array 3. Think I can use a conditional to skip over spaces
 
+// Spent way too long on this one, and had to look up the solution. Chose this one:
+
 const wave = function(str) {
-    let arr = [];
+    let theWave = [];
 
     for (let i = 0; i < str.length; i++) {
-        arr.push(str)
+        let strArray = str.split(''); 
+        if (strArray[i] !== ' ') {
+            strArray[i] = strArray[i].toUpperCase();
+            theWave.push(strArray.join(''));
+        }
     }
 
-    for (let i = 0; i < arr.length; i++) {
-       arr = arr[i[i].toUpperCase()]
-    }
-
-    console.log(simulator)
-}
-
-wave('nathan')
+    return theWave;
+};
