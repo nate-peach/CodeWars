@@ -14,4 +14,4 @@ const minSum = function(arr) {
   return smallestSum;
 };
 
-// not a big fan of the solution, but it works! After looking at the solutions, found that the for loop can be replaced with a while loop, letting my .pop() .shift() idea to work, simply: while(arr.length) smallestSum += sortedNums.pop() * sortedNums.shift();
+// not a big fan of the solution, but it works! After looking at other solutions, found that the for loop can be replaced with a while loop, letting my .pop() .shift() idea to work, simply: while(arr.length) smallestSum += sortedNums.pop() * sortedNums.shift();
