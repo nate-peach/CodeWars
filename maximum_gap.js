@@ -17,4 +17,4 @@ const maxGap = function(numbers) {
     return Math.max(...differences);
   };
 
-// Worked pretty well, but had to use .slice() to remove the last element, not the prettiest
+// Worked pretty well, but had to use .slice() to remove the last element, not the prettiest`
