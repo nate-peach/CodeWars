@@ -17,4 +17,13 @@ const maxGap = function(numbers) {
     return Math.max(...differences);
   };
 
-// Worked pretty well, but had to use .slice() to remove the last element, not the prettiest`
+// Worked pretty well, but had to use .slice() to remove the last element, not the prettiest. More simplified code I saw on another user's solution:
+
+const maximumGap = numbers =>
+  numbers.sort((a, b) => b - a)
+    .reduce((previousValue, currentValue, index) => {
+        let difference = currentValue - numbers[index + 1];
+        if (difference > previousValue)
+            previousValue = difference;
+        return previousValue;
+    }, 0);
