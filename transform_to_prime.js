@@ -7,20 +7,20 @@
 //   [50,39,49,6,17,28] would return 2
 // I honestly didn't know what a prime number is, or how to approach writing code to check for one, so I looked it up! Found some code to use as a "prime number checker" and I'm going to combine it with .reduce() and some conditionals - see where that gets me
 
-const isPrime = num => {
-    for(let i = 2, s = Math.sqrt(num); i <= s; i++)
+const checkPrime = num => {
+    for (let i = 2, s = Math.sqrt(num); i <= s; i++)
         if(num % i == 0) return false; 
     return num > 1;
-}
+};
 
-const minimumNumber = function(numbers) {
+const minimumNumber = numbers => {
     let arraySum = numbers.reduce((a, b) => a + b);
     let numToAdd = 0;
-    while (isPrime(arraySum) == false) {
-    arraySum++
-    numToAdd++
+    
+    while (checkPrime(arraySum) == false) {
+        arraySum++;
+        numToAdd++;
     }
+  
     return numToAdd;
-}
-
-console.log(minimumNumber([50,39,49,6,17,28]))
+};
