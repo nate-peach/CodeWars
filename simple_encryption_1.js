@@ -8,22 +8,44 @@
 //  Create one function which encrypts, using variable, .forEach(), and conditionals. And another function which runs the encryption n number of times. Decryption is the same, just reversed
 
 const encrypt = function(text, n) {
-    let textArr = text.split('');
-    for (let i = 0; i < n; i++) {
-        let encryption = [];
-        textArr.forEach((num, index) => {
-            if (index % 2 == 1)
-                encryption.push(num);
-        });
-        textArr.forEach((num, index) => {
-            if (index % 2 == 0)
-                encryption.push(num);
-        });
-        textArr = encryption;
+    if (!text || !text.length || n <= 0)
+        return text;
+    
+    let evens = '';
+    let odds = '';
+
+    for (let i = 0; i < text.length; i++) {
+        if (i % 2 == 0)
+            evens += text[i];
+        else
+            odds += text[i];
     }
-    return textArr.join('');
+
+    return encrypt(odds + evens, --n);
 }
 
-console.log(encrypt('Kobayashi-Maru-Test', 10))
+const decrypt = function(encryptedText, n) {
+    if (!encryptedText || !encryptedText.length || n <= 0)
+        return encryptedText;
+    
+    const first = encryptedText.slice(0, encryptedText.length / 2);
+    const second = encryptedText.slice(encryptedText.length / 2);
+    
+    let decryption = '';
+    let i = 0;
+    let j = 0;
 
-// couldn't solve this one, had to look at the solutions. will update with comments tomorrow.
+    while (decryption.length < encryptedText.length) {
+        if (decryption.length % 2 == 0) 
+            decryption += second[i],
+            i++;
+        else
+            decryption += first[j],
+            j++;
+    }
+    return decrypt(decryption, --n);
+}
+
+console.log(decrypt(encrypt('Kobayashi-Maru-Test', 10), 10))
+
+// couldn't solve this one, had to look at the solutions. I was able to get the encryption working, but took way too long doing even that. Definitely humbling, learned a lot. The solution here uses recursion, combined with loops and variable reassignment.
