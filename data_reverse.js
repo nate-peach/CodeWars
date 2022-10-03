@@ -12,15 +12,20 @@
 
 const dataReverse = function(data) {
     let segments = Array(data.length / 8).fill('');
-        for (let i = 0; i < data.length; i++) {
-            let j = 0;
-            if (segments[j].length === 8) {
-                j++;
-            }
-            segments[j] += data[i];
-        }
-        return segments;
-  }
+    let j = 0;
+    for (let bit of data) {   
+        if (segments[j].length === 8)
+            j++;
+        segments[j] += bit;
+    }
+  
+    return Array.from(segments
+        .reverse()
+        .join('')
+        .split(''), 
+        Number
+    );
+}
 
 console.log(dataReverse([1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]))
 
