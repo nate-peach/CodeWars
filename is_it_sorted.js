@@ -12,11 +12,24 @@
 //  [4, 2, 30] would return "no"
 // This seems like a simple challenge when using .sort() and conditionals. Let's see.
 
-const isSortedAndHow = array =>
-    array === array.sort((a, b) => a - b) ?
-        'yes, ascending' :
-    array === array.sort((a, b) => b - a) ?
-        'yes, descending' :
-        'no';
+const isSortedAndHow = function(array) {
+    const ascending = [...array].sort((a, b) => a - b);
+    const descending = [...array].sort((a, b) => b - a);
+    let checkA = 0;
+    let checkD = 0;
+  
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == ascending[i])
+            checkA++;
+        if (array[i] == descending[i])
+            checkD++;
+    }
+    
+    return checkA == array.length ?
+        "yes, ascending" :
+    checkD == array.length ?
+        "yes, descending" :
+    "no";
+}
 
-console.log(isSortedAndHow(['asdfasdfasdf']));
+// not simple lol
