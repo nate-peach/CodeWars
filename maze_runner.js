@@ -14,7 +14,10 @@
 // direction = ["N","N","N","N","N","E","E","E","E","E"]
 // Pretty complex. So first we need to find the index of our starting point, 2. Then our end point, 3. From there we can set up a whole lot of conditionals (maybe can think of a shorter method?). We'll also create a loop that runs the length of the direction array.
 
+let test = [];
+
 function mazeRunner(maze, directions) {
+
     let innerStartingIndex;
     let outerStartingIndex = maze.findIndex(sub => {
         innerStartingIndex = sub.indexOf(2);
@@ -29,31 +32,34 @@ function mazeRunner(maze, directions) {
         });
     const endPoint = [outerEndingIndex, innerEndingIndex];
 
-    const sizeY = maze.length - 1;
-    const sizeX = maze.length - 1;
+    const size = maze.length - 1;
 
     let [b, a] = startPoint;
-    let [y, x] = endPoint
-    let move;
+    let [y, x] = endPoint;
 
-    for (let i = 0; i < directions.length; i++) {
-        move = {
-            W: () => { if (a == x) return  }
-            E: () => x ? x-- : x = boundX,
-            N: () => y ? y-- : y,
-            S: () => y < boundY ? y++ : y
+    let move = {
+            W: () => !a ? 'Dead' : a--,
+            E: () => a == size ? 'Dead' : a++,
+            N: () => !b ? 'Dead' : b--,
+            S: () => b == size ? 'Dead' : b++
           };
         
+    for (let i = 0; i < directions.length; i++) {
+        move[directions[i]]()
+      test.push(maze[b][a])
+        if (maze[b][a] == 1)
+            return 'Dead';
+        if (b == y && a == x)
+            return 'Finish'
     }
-
-
-
+    return 'Lost'
 }
 
-console.log(mazeRunner([[1,1,1,1,1,1,1],
+console.log(mazeRunner([[1,0,1,1,1,1,1],
              [1,0,0,0,0,0,3],
              [1,0,1,0,1,0,1],
              [0,0,1,0,0,0,1],
              [1,0,1,0,1,0,1],
              [1,0,0,0,0,0,1],
-             [1,2,1,0,1,0,1]]))
+             [1,2,1,0,1,0,1]], ["N","N","N","N","N","N","N"]))
+console.log(test)
