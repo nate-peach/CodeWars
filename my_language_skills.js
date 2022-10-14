@@ -23,12 +23,12 @@ let sorted = sortable.sort((a, b) =>
     
 }
 
-const myLanguages = results => Object
-    .keys(results)
-    .filter(a => 
-        results[a] >= 60)
-    .sort((a, b) =>
-        results[b] - results[a]);
+// const myLanguages = results => Object
+//     .keys(results)
+//     .filter(a => 
+//         results[a] >= 60)
+//     .sort((a, b) =>
+//         results[b] - results[a]);
 
 // Simpler solution I found that uses Object.keys to simplify things. I tried using keys, but wasn't including input in chained filter & sort methods
 

@@ -20,3 +20,9 @@
               return false;
         return true;
       }
+
+// const isIsogram = str =>
+//   new Set(str.toLowerCase())
+//     .size == str.length;
+
+// Came back to this one after seeing it in Anki, updated card with this new solution that I now understand :))
