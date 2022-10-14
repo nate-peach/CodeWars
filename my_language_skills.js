@@ -12,14 +12,24 @@
 function myLanguages(results) {
 
 let sortable = [];
-for (var score in results) {
-    sortable.push([score, results[score]]);
+for (var test in results) {
+    sortable.push([test, results[test]]);
 }
 
 let sorted = sortable.sort((a, b) =>
     b[1] - a[1]);
 
-    return sorted.filter(a => a[1] >= 60)
+    return sorted.filter(a => a[1] >= 60).map(a => a.slice(0, -1)).flat;
+    
 }
+
+const myLanguages = results => Object
+    .keys(results)
+    .filter(a => 
+        results[a] >= 60)
+    .sort((a, b) =>
+        results[b] - results[a]);
+
+// Simpler solution I found that uses Object.keys to simplify things. I tried using keys, but wasn't including input in chained filter & sort methods
 
 console.log(myLanguages({"Hindi": 60, "Dutch" : 93, "Greek": 71, "C++": 50, "ASM": 10, "Haskell": 20}))
