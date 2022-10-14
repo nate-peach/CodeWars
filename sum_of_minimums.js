@@ -12,5 +12,4 @@ function minimumSum(subArrays) {
     }
     return sumTracker;
 }
-
 console.log(minimumSum([[3, 6, 2, 8], [5, 9, 2, 3, 4], [13, 11, 10, 15, 9]]))
