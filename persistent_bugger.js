@@ -8,15 +8,20 @@
 // Convert to array, create variable & for loop, use recursion?
 
 const persistence = num => {
-    
-    var cycleNum = 0;
-    let product = 1;
-    const digits = Array.from(String(num), Number);
 
-    while (`${product}`.length > 1)
+var digits = Array.from(String(num), Number);
+let newDigits;
+let counter = 0;
+var product = 1;
 
+for (let digit of digits) {
+    product *= digit;
+    if(`${product}`.length == 1)
+        return counter;
+    counter++;
+    digits = Array.from(String(product), Number);
+}
 
-    return persistence(product);
 }
 
 console.log(persistence(999));
