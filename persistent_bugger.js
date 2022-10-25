@@ -16,8 +16,6 @@ var product = 1;
 
 for (let digit of digits) {
     product *= digit;
-    if(`${product}`.length == 1)
-        return counter;
     counter++;
     digits = Array.from(String(product), Number);
 }
