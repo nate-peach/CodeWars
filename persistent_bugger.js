@@ -25,3 +25,20 @@ const persistence = num => {
 }
 
 console.log(persistence(39));
+
+// Wanted to use recursion for this, couldn't think of a way to do it. But found this solution after finishing the challenge. They assigned counter = 0 in the parameters, which I thought of but got the syntax wrong.s
+
+// const persistence = (num, counter = 0) => {
+    
+//     if (num.toString().length === 1)
+//         return counter;
+    
+//     let product = num
+//         .toString()
+//         .split('')
+//         .reduce((a, b) => a * b);
+    
+//     counter++;
+    
+//     return persistence(product, counter)
+// }
