@@ -9,17 +9,19 @@
 
 const persistence = num => {
 
-var digits = Array.from(String(num), Number);
-let newDigits;
-let counter = 0;
-var product = 1;
+    var digits = Array.from(String(num), Number);
+    let counter = 0;
+    var start = 1;
 
-for (let digit of digits) {
-    product *= digit;
-    counter++;
-    digits = Array.from(String(product), Number);
+    while (digits.length > 1) {
+        for (let digit of digits) {
+            start *= digit;
+        }
+        digits = Array.from(String(start), Number);
+        start = 1;
+        counter++;
+    }
+    return counter;
 }
 
-}
-
-console.log(persistence(999));
+console.log(persistence(39));
