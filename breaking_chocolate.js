@@ -8,4 +8,9 @@
 // returning one number, representing the number of times the chocolate must be broken. Print to the console?
 // 4, 2 => IIII
 // 10, 4 => 
-// Need to check if simple math is possible 
+// Need to check if simple math is possible (it is, input1 * input2 - 1 gives you number of breaks) then use conditional
+
+const breakChocolate = (num1, num2) =>
+    num1 * num2 ? num1 * num2 - 1 : 0;
+
+console.log(breakChocolate(5, 5))
