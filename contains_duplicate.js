@@ -18,9 +18,38 @@
 // will try Set approach first, then hash map
 
 const containsDuplicate = nums => {
-    return new Set(nums) != nums;
+    return new Set(nums).size != nums.length;
 }
 
-console.log(containsDuplicate([1,1,1,3,3,4,3,2,4,2]))
+// console.log(containsDuplicate([1,2,3,4]))
 // containsDuplicate([1, 3, 8, 2, 0, 7, 12]))
 // containsDuplicate([1,2,3,4]))
+
+var isAnagram = function(s, t) {
+    if (s.length != t.length)
+        return false;
+
+    let sMap = {};
+    let tMap = {};
+
+    for (let i = 0; i < s.length; i++) {
+        if (sMap[s[i]])
+            sMap[s[i]]++;
+        else
+            sMap[s[i]] = 1;
+        
+        if (tMap[t[i]])
+            tMap[t[i]]++;
+        else
+            tMap[t[i]] = 1;
+    }
+
+    for (let letter in tMap) {
+        if (!sMap[letter] || sMap[letter] != tMap[letter])
+            return false;
+    }
+
+    return true;
+}
+
+console.log(isAnagram('nathane', 'enathan'))
