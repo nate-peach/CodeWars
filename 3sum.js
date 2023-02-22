@@ -24,16 +24,13 @@
         if (sNums[i] > target) {
             break;
         }
-		
         // if our iterator is the same as the previous value
         // skip it to prevent duplicate results
         if (i > 0 && sNums[i] === sNums[i - 1]) {
             continue;
         }
-		
         // start j at i + 1
         let j = i + 1;
-		
         // start k at end of array
         let k = sNums.length - 1;
         
