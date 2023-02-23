@@ -9,28 +9,29 @@
  * current int = i[0], i + 1[1]
  */
 var merge = function(intervals) {
-    if (intervals.length < 2) 
-        return intervals;
     
-    let sortIntervals = intervals.sort((a, b) => a[0] - b[0]);
-
-    for (let i = 1; i < sortIntervals.length; i++) {
-        curr = sortIntervals[i];
-        prev = sortIntervals[i-1];
-
-        if (curr[0] <= prev[1]) {
-            sortIntervals[i] = [prev[0], Math.max(prev[1],curr[1])];
-            sortIntervals.splice(i-1,1);
-            i--;
-        };
-    };
-
-    return sortIntervals;
+    let result = [];
+    
+    intervals.sort((a, b) => a[0] - b[0]);
+    
+    for (const curInterval of intervals){
+        
+        if ( (result.length == 0) ||
+        (result[result.length-1][1] < curInterval[0]) ) { 
+            result.push( curInterval );
+        }
+        else {
+            result[result.length-1][1] = 
+            Math.max( result[result.length-1][1], curInterval[1] );
+        }
+    }
+    
+    return result;
 };
 
 /** 
 Ran out of time solving this one, but was headed in the right direction. needed to: 
 start loop and i = 1 and check overlaps at prev index 
 add another variable in the loop (prev)
-reassign intervals[i] differently, splice out overlap, deincrement i
+reassign intervals[i] differently
 */
